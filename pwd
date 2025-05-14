@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <limits.h>
+#include <errno.h>
+#include <string.h>
+
+void pwd_main() {
+    char cwd[PATH_MAX];
+
+  
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+      
+        printf("%s\n", cwd);
+    } else {
+     
+        fprintf(stderr, "pwd: %s\n", strerror(errno));
+    }
+}
